@@ -1,7 +1,5 @@
 # ylink - URL Shortener
 
-![Project Banner](https://via.placeholder.com/1200x300.png?text=ylink%20-%20FastAPI%20URL%20Shortener)
-
 A simple and efficient URL Shortener API built with Python, FastAPI, and MongoDB. Create and manage short links with a clean and fast RESTful interface.
 
 ---
@@ -105,8 +103,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ---
 
 # ylink - Acortador de URLs
-
-![Project Banner](https://via.placeholder.com/1200x300.png?text=ylink%20-%20Acortador%20de%20URLs%20con%20FastAPI)
 
 Un Acortador de URLs simple y eficiente construido con Python, FastAPI y MongoDB. Una API simple y eficiente para crear y gestionar enlaces cortos.
 
