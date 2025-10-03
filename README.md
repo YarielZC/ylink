@@ -36,7 +36,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 1.  **Clone the repository:**
     ```sh
-    git clone https://github.com/YourUsername/ylink.git
+    git clone https://github.com/YarielZC/ylink.git
     cd ylink
     ```
 
@@ -140,7 +140,7 @@ Sigue estas instrucciones para obtener una copia del proyecto y ejecutarlo en tu
 
 1.  **Clona el repositorio:**
     ```sh
-    git clone https://github.com/TuUsuario/ylink.git
+    git clone https://github.com/YarielZC/ylink.git
     cd ylink
     ```
 
