@@ -1,0 +1,41 @@
+# =================
+# Archivos de Secretos y Configuración
+# ¡NUNCA SUBIR ESTOS ARCHIVOS!
+# =================
+.env
+*.env
+
+# =================
+# Entornos Virtuales de Python
+# Se recrean usando requirements.txt
+# =================
+env/
+.env/
+venv/
+.venv/
+venv.bak/
+.venvs/
+
+# =================
+# Archivos de Despliegue de Vercel
+# =================
+.vercel/
+
+# =================
+# Archivos de Caché de Python
+# =================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =================
+# Archivos de IDEs y Editores
+# =================
+.vscode/
+.idea/
+
+# =================
+# Archivos del Sistema Operativo
+# =================
+.DS_Store
+Thumbs.db
