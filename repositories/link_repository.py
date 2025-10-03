@@ -2,6 +2,8 @@ from db.client import db_client
 from models.link import LinkCreate
 from bson import ObjectId
 
+from models.user import User
+
 
 
 class LinkRepository:
@@ -24,5 +26,7 @@ class LinkRepository:
     
     def insert_one_link(self, link: LinkCreate):
         return self.db_client.insert_one(dict(link)).inserted_id
-        
+
+    def get_links_of_user(self, user: User):
+        return self.db_client.find({'user_id': str(user.id)})
 db_links = LinkRepository()

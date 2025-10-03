@@ -1,6 +1,6 @@
 from bson import ObjectId
 
-def link_schema(link) -> dict:
+def link_schema(link) -> dict[str, str]:
     return {
         'id': str(link['_id']),
         'user_id': str(link['user_id']),

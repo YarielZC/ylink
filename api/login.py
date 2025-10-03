@@ -50,6 +50,3 @@ async def login(settings: Annotated[Settings, Depends(get_settings)], form: OAut
                                        algorithm=settings.ALGORITHM_CRYPT), 
             'token_type': 'bearer'}
 
-@router.get('/me')
-async def me(user: User = Depends(auth_user)):
-    return user

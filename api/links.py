@@ -6,13 +6,19 @@ from bson import ObjectId
 from logic.create_random_link import create_random_url
 from schemas.link_schema import link_schema
 from repositories.link_repository import db_links
+from repositories.user_repository import db_users
 
 router = APIRouter(prefix='/links',
                    tags=['Links'],
                    responses={status.HTTP_404_NOT_FOUND: {'message': 'Not Found'}})
 
-@router.post('/create_link')
+@router.post('/create_link', response_model=LinkDB, status_code=status.HTTP_201_CREATED)
 async def create_link(link: LinkCreate, user: User = Depends(auth_user)):
+
+    # The user dont have more than 50 links
+    if user.links_count >= 50:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,
+                            detail='User have the limit of urls. UPGRADE YOUR PLAN')
 
     if not user.id:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
@@ -36,4 +42,9 @@ async def create_link(link: LinkCreate, user: User = Depends(auth_user)):
     if not created_link:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                             detail='Cannot create in database')
-    return LinkDB(**link_schema(created_link))
+    
+    created_link = LinkDB(**link_schema(created_link))
+
+    db_users.update_links_count(user, 1)
+
+    return created_link

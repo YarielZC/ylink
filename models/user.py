@@ -6,12 +6,14 @@ class UserCreate(BaseModel):
     username: str
     email: str
     password: str
+    links_count: int = 0
 
 class User(BaseModel):
     id: Optional[str]
     name: str
     username: str
     email: str
+    links_count: int
     
 class UserDB(User):
     password: str

@@ -4,6 +4,7 @@ def user_schema(user) -> dict:
         'name': str(user['name']),
         'username': str(user['username']),
         'email': str(user['email']),
+        'links_count': int(user['links_count'])
     }
 
 def user_db_schema(user) -> dict:

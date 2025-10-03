@@ -8,7 +8,7 @@ def get_settings():
 
 
 # LOCAL DEVELOPMENT
-#db_client = MongoClient().local
+db_client = MongoClient().local
 
 #PRODUCTION
-db_client = MongoClient(get_settings().URL_DB).ylink
+# db_client = MongoClient(get_settings().URL_DB).ylink

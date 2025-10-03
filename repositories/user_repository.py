@@ -1,5 +1,5 @@
 from db.client import db_client
-from models.user import UserCreate
+from models.user import User, UserCreate
 from bson import ObjectId
 
 
@@ -21,4 +21,10 @@ class UserRepository:
     def insert_one_user_with_dict(self, user: dict):
         return self.db_client.insert_one(user).inserted_id
 
+    def update_links_count(self, user: User, add_count: int):
+        return self.db_client.update_one({'_id': ObjectId(user.id)}, {
+            '$set': {
+                'links_count': user.links_count + add_count
+            }
+        })
 db_users = UserRepository()
