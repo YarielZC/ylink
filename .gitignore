@@ -44,3 +44,9 @@ Thumbs.db
 # Archivos de Debug
 # =================
 .debug.txt
+degub.py
+
+# =================
+# Archivos de Debug
+# =================
+db/client.py
