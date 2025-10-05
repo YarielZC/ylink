@@ -1,5 +1,5 @@
 from db.client import db_client
-from models.link import LinkCreate
+from models.link import LinkCreate, LinkDB
 from bson import ObjectId
 
 from models.user import User
@@ -29,4 +29,11 @@ class LinkRepository:
 
     def get_links_of_user(self, user: User):
         return self.db_client.find({'user_id': str(user.id)})
+
+    def update_touch_link_count(self, link: LinkDB):
+        return self.db_client.update_one({'_id': ObjectId(link.id)}, {
+            '$set': {
+                'touch_counts': link.touch_counts + 1
+            }
+        })
 db_links = LinkRepository()

@@ -16,11 +16,14 @@ app.include_router(users.router)
 async def redirect(small_url: str):
 
     found = db_links.find_redirect_link(small_url)
-
+    # print(small_url)
     if not found:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail='URL invalid or not found')
 
-    redirect_url = LinkDB(**link_schema(found)).redirect_url
+    linkDB = LinkDB(**link_schema(found))
+    redirect_url = linkDB.redirect_url
+
+    db_links.update_touch_link_count(linkDB)
 
     return RedirectResponse(redirect_url)
