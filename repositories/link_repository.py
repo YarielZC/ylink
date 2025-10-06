@@ -21,7 +21,6 @@ class LinkRepository:
         return self.db_client.find_one({field: value})
     
     def find_redirect_link(self, small_url: str):
-        
         return self.db_client.find_one({'small_url': small_url})
     
     def insert_one_link(self, link: LinkCreate):

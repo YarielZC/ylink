@@ -5,11 +5,11 @@ import string
 
 base_url = 'yarilink/'
 
-def create_random_url() -> str:
+def create_random_url(lenght: int) -> str:
     count = 0
     found = None
     while found or count <= 5:
-        new_id = ''.join(random.choices(string.ascii_letters + string.digits, k=5))
+        new_id = ''.join(random.choices(string.ascii_letters + string.digits, k=lenght))
         found = db_client.links.find_one({'small_url': new_id})
         count += 1
     

@@ -1,17 +1,17 @@
+from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel
-from datetime import datetime
 
-class LinkCreate(BaseModel):
+
+class OneUseLinkCreate(BaseModel):
     redirect_url: str
 
-class Link(LinkCreate):
+class OneUseLink(OneUseLinkCreate):
     user_id: str
     small_url: str
-    touch_counts: int = 0
     create_at: str = str(datetime.utcnow())
 
-class LinkDB(Link):
+class OneUseLinkDB(OneUseLink):
     id: Optional[str]
     
 
