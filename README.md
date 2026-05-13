@@ -1,5 +1,7 @@
 # ylink - URL Shortener
 
+Created by Yariel Zamora del Cueto
+
 A simple and efficient URL Shortener API built with Python, FastAPI, and MongoDB. Create and manage short links with a clean and fast RESTful interface.
 
 ---
